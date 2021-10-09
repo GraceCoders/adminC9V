@@ -1,0 +1,86 @@
+<div id="top"></div>
+<div class="panel-header panel-header-sm">
+</div>
+
+
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: aquamarine;">
+          <h4 class="card-title"> Rating & FeedBack</h4>
+          <div class="addNewBtn row" style="width:70%">
+            <div class="col-md-2" style="padding-top: 1.2em;font-size:large;">
+              Filter By :
+            </div>
+            <div class="Col-md-2" style="padding:0.2em">
+              <label>From Date</label>
+              <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [(bsValue)]="data.fromDate">
+            </div>
+
+            <div class="Col-md-2" style="padding:0.2em">
+              <label>To Date</label>
+              <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [(bsValue)]="data.toDate">
+            </div>
+          
+            <div class="col-md-2 text-center" style="padding-top: 0.5em;">
+              <button class="btn btn-success">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="userSearchList">
+            <input (keyup)="search($event)" placeholder="search...">
+            <span _ngcontent-c5="" class="searchIcon"><i _ngcontent-c5="" class="fa fa-search"></i></span>
+          </div>
+        </div>
+        <div *ngIf="!Messages.length">
+          No data found
+        </div>
+        <div *ngIf="Messages.length" class="eventUserList">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>Order Id </th>
+                  <th>Driver Id</th>
+                  <th>Order Address</th>
+                  <th>Order Rating</th>
+                  <th>Order FeedBack</th>
+                  <th>Driver Rating</th>
+                  <th>Driver FeedBack</th>
+                  <th>Created At</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of Messages; let i= index;">
+                    
+                    <td>{{item.OrderId}}</td>
+                    <td>{{item.DriverID}}</td>
+                    <td>{{item.orderAddress}}</td>
+                    <td>{{item.orderRating}}</td>
+                    <td>{{item.orderFeedBack}}</td>
+                    <td>{{item.driverRating}}</td>
+                    <td>{{item.DriverFeedBack}}</td>
+                    <td>{{item.CreatedDate | date:"medium"}}</td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              <div class="row justify-content-center" *ngIf="Messages.length">
+                <ngb-pagination [collectionSize]="total" [(page)]="where.page" [maxSize]="5" [pageSize]="where.limit" [rotate]="true"
+                 [boundaryLinks]="false" (pageChange)="loadPage($event)"></ngb-pagination>
+              </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+      <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+  </div>
+</div>

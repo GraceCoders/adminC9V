@@ -1,0 +1,15 @@
+.ck.ck-editor__editable_inline>:last-child {
+    height: 200px;
+}
+.sidepanel:before {
+    position: static;
+    height: auto;
+}
+div#mySidepanel {
+    background: #202b36;
+    box-shadow: none;
+}
+.sidepanel:after {
+    width: auto;
+}
+

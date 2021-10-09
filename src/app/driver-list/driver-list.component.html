@@ -1,0 +1,68 @@
+<div id="top"></div>
+<div class="panel-header panel-header-sm">
+</div>
+
+
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: aquamarine;">
+          <h4 class="card-title"> Driver List</h4>
+          <span class="sn-right">
+            <a class="nav-link" routerLink="/add-driver">
+              <i class="now-ui-icons ui-1_simple-add"></i>
+            </a>
+          </span>
+        </div>
+        <div class="col-md-12">
+          <div class="userSearchList">
+            <input (keyup)="search($event)" placeholder="search...">
+            <span _ngcontent-c5="" class="searchIcon"><i _ngcontent-c5="" class="fa fa-search"></i></span>
+          </div>
+        </div>
+        <div *ngIf="!drivers.length">
+          No data found
+        </div>
+        <div *ngIf="drivers.length" class="eventUserList">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>S. No</th>
+                  <th>Name </th>
+                  <th>Email</th>
+                  <th>Mobile Number</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let driver of drivers; let i= index;">
+                    <td>{{i + 1}}</td>
+                    <td>{{driver.name}}</td>
+                    <td>{{driver.email}}</td>
+                    <td>{{driver.mobileNumber}}</td>
+                    <td>
+                      <i class="fa fa-edit" aria-hidden="true" (click)="editDriver(driver._id)"></i> &nbsp;
+                      <i class="fa fa-trash" aria-hidden="true" (click)="deleteDriver(driver._id,i)"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              <div class="row justify-content-center" *ngIf="drivers.length">
+                <ngb-pagination [collectionSize]="total" [(page)]="where.page" [maxSize]="5" [pageSize]="where.limit" [rotate]="true"
+                 [boundaryLinks]="false" (pageChange)="loadPage($event)"></ngb-pagination>
+              </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+      <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+  </div>
+</div>

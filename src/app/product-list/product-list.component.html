@@ -1,0 +1,100 @@
+<div id="top"></div>
+<div class="panel-header panel-header-sm">
+</div>
+
+
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: aquamarine;">
+          <h4 class="card-title"> Products List</h4>
+
+          <div class="addNewBtn row" style="width:57%">
+            <div class="col-md-4"></div>
+            <div class="col-md-2" style="padding-top:  1.6em;font-size:large;">
+              Filter By :
+            </div>
+
+            <div class="Col-md-2" style="padding:0.2em">
+              <label>Catagory</label>
+              <select (change)="filterByCatagory($event)" class="form-control">
+                <option hidden>Change Catagory</option>
+                <option *ngFor="let item of catagories" [value]="item._id" >{{item.name}}</option>
+              </select>
+            </div>
+          
+            <div class="col-md-1 text-center" style="padding-top: 1.5em;">
+              <a class="nav-link" routerLink="/add-product">
+                <i class="now-ui-icons ui-1_simple-add"></i>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col-md-12">
+          <div class="userSearchList">
+            <input (keyup)="search($event)" placeholder="search...">
+            <span _ngcontent-c5="" class="searchIcon"><i _ngcontent-c5="" class="fa fa-search"></i></span>
+          </div>
+        </div>
+        <div *ngIf="!products.length">
+          No data found
+        </div>
+        <div *ngIf="products.length" class="eventUserList">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>S. No</th>
+                  <!-- <th>Color Image</th> -->
+                  <th>Name </th>
+                  <th>Catagory</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Quantity Left</th>
+                  <th>Created At</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products; let i= index;">
+                    <td>{{i + 1}}</td>
+                    <!-- <td>
+                      <img src={{product.One}} width="50px" height="50px">
+                    </td> -->
+                    <td>{{product.name}}</td>
+                    <th>{{product.catagoriesName}}</th>
+                    <td>{{product.price}}</td>
+                  <td>{{product.quantity}}</td>
+                  <td>{{product.leftQuantity}}</td>
+                  <td>{{product.createdAt}}</td>
+                  <td>
+                    <div *ngIf="product.leftQuantity == 0" class="text-danger">Out of Stock</div>
+                  </td>
+                    <td>
+                      <i class="fa fa-edit" aria-hidden="true" (click)="editProduct(product._id)"></i> &nbsp;
+                      <i class="fa fa-trash" aria-hidden="true" (click)="deleteStore(product._id,i)"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              <div class="row justify-content-center" *ngIf="products.length">
+                <ngb-pagination [collectionSize]="total" [(page)]="where.page" [maxSize]="5" [pageSize]="where.limit" [rotate]="true"
+                 [boundaryLinks]="false" (pageChange)="loadPage($event)"></ngb-pagination>
+              </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+      <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
+  </div>
+</div>

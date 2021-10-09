@@ -1,0 +1,94 @@
+<div id="top"></div>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header headerFlex" style="background-color: aquamarine;">
+          <h4 class="card-title"> Vendor Product List</h4>
+        </div>
+        <div class="eventListPage">
+          <div class="row">
+            <!-- <div class="col-md-12">
+            <div class="searchList">
+              <input   (keyup)="search($event)" #text  placeholder="Search by name..">
+              <span _ngcontent-c5="" class="searchIcon"><i _ngcontent-c5="" class="fa fa-search"></i></span>
+            </div>
+          </div> -->
+            <div *ngIf="!products.length" class="eventNoFound">
+              No product found
+            </div>
+            <div *ngIf="products.length" class="eventUserList col-md-12">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+
+                      <th>Sr No</th>
+                      <th>Image One</th>
+                      <th>Image Two</th>
+                      <th>Name</th>
+                      <th>Size</th>
+                      <th>Unit</th>
+                      <th>Quantity</th>
+                      <th>Price/Kg</th>
+                      <!-- <th>Status</th> -->
+                      <th>Description</th>
+                      <th>Created Date</th>
+                      <th>Action</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let product of products; let i= index;">
+                        <td>{{ i+1}}</td>
+                        <td>
+                          <div class="imageCircle">
+                            <img class="img-fluid" [src]="product.imageOne" width="50px" height="50px" alt="Cover">
+                          </div>
+                        </td>
+                        <td>
+                          <div class="imageCircle">
+                            <img class="img-fluid" [src]="product.imageTwo" width="50px" height="50px" alt="Cover">
+                          </div>
+                        </td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.size}}</td>
+                        <td>{{product.unit}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.price}}</td>
+                        <!-- <td>{{product.status}}</td>  -->
+                        <td>{{product.description}}</td>
+                        <td>{{product.createdAt | date: "shortDate"}}</td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                              Make Product
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item active" (click)="viewProduct(product._id,'normal')">Normal</a>
+                              <a class="dropdown-item " (click)="viewProduct(product._id,'auction')">Auction</a>
+                            </div>
+                            </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center" *ngIf="products.length">
+          <ngb-pagination [collectionSize]="total" [(page)]="where.page" [maxSize]="5" [pageSize]="where.limit"
+            [rotate]="true" [boundaryLinks]="false" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+</div>

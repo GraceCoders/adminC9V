@@ -1,0 +1,273 @@
+<!-- <div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header" style="background-color: aquamarine;">
+          <h4 class="card-title">Product Details</h4>
+        </div>
+
+        <div class="card-body bodyFormDesign">
+
+          <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
+
+            <div class="row" style="padding-left: 500px;">
+              <div class="form-group">
+              <div>
+                <img src={{product.imageOne}} width="100" height="100" alt="Italian Trulli">
+              </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                <div>
+                  <img src={{product.imageTwo}} width="100" height="100" alt="Italian Trulli">
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <h6>Name</h6><br>
+                  {{product.name}}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <h6>Price</h6><br>
+                  {{product.price}}
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+              <div class="form-group">
+                <h6> Quantity</h6><br>
+                {{product.quantity}}
+              </div>
+              </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <h6> Size</h6><br>
+                  {{product.size}}
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+              <div class="form-group">
+                <h6> Created At</h6><br>
+                {{product.createdAt | date: "mediumDate"}}
+              </div>
+              </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <h6> Unit</h6><br>
+                  {{product.unit}}
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <h6> Description</h6><br>
+                  {{product.description}}
+                </div>
+                </div>
+              </div>
+            <div>
+              <div *ngIf="errMessage">
+                <p style="text-align: center; color: red; size: 20px; font: bold">{{msg}}</p>
+              </div>
+              <h4 style="background-color: aquamarine;">MAKE NORMAL PRODUCT OR AUCTION</h4>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <button type="button" class="btn btn-primary" (click)="normalProduct(product._id,product.vendorId,description,product.description,product.orderPlaced)">Normal Product</button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <ngx-datetime-picker
+                  id = "timevalue"
+                  #timevalue
+                  [(selectedDateTime)]="dateTimeExample"
+                ></ngx-datetime-picker>
+                </div>
+              </div>
+         
+              <div class="col-md-4">
+                <div class="form-group">
+                  <button type="button" class="btn btn-primary" (click)="auctionProduct(product._id,product.vendorId,timevalue,description,product.description,product.orderPlaced)">Auction Product</button>
+                </div>
+              </div>
+            </div>
+   
+            <div class="form-group">
+              <h6>Do you want to change Description ?</h6>
+              <ckeditor [editor]="Editor" 
+              id = "description"
+              #description>
+              </ckeditor>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <ngx-spinner
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-scale-multiple"
+  >
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+  </div> -->
+
+
+
+
+  <div class="panel-header panel-header-sm">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+  
+          <div class="card-header" style="background-color: aquamarine;">
+            <h4 class="card-title">Edit Product</h4>
+          </div>
+  
+          <div class="card-body bodyFormDesign">
+  
+            <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()">
+  
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label> Name</label>
+                    <input type="text" formControlName="name" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                      <div *ngIf="f.name.errors.required">Product Name is required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" formControlName="price" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                      <div *ngIf="f.price.errors.required">Price is required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" formControlName="quantity" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }" />
+                    <div *ngIf="submitted && f.quantity.errors" class="invalid-feedback">
+                      <div *ngIf="f.quantity.errors.required">Quantity is required</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Size</label>
+                    <input type="text" formControlName="size" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.size.errors }" />
+                    <div *ngIf="submitted && f.size.errors" class="invalid-feedback">
+                      <div *ngIf="f.size.errors.required">Size is required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="auction">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Schdule Time</label>
+                    <input type="number" formControlName="scheduleTime" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.scheduleTime.errors }" />
+                    <div *ngIf="submitted && f.scheduleTime.errors" class="invalid-feedback">
+                      <div *ngIf="f.scheduleTime.errors.required">Schedule Time is required</div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Duration</label>
+                    <input type="text" formControlName="duration" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.duration.errors }" />
+                    <div *ngIf="submitted && f.duration.errors" class="invalid-feedback">
+                      <div *ngIf="f.duration.errors.required">Duration is required</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+  
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="imageOne" >Image One</label>
+                  <div class="chngBannerImages">
+                    <img class="img-fluid"  *ngFor="let url_imageone of urls_imageOne" [src]="url_imageone" width="100" height="150" class="form-control"  alt="Cover">
+                  </div>
+                  <div class="changeBrowseBtn">
+                  <input type="file" id="photo" name="imageOne" (change)="fileUploadImageOne($event)" class="form-control">
+                  <span>Browse Image</span>
+                  </div>
+                  <div *ngIf="image" style="color: red">Image is required</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="imageTwo" >Image Two</label>
+                  <div class="chngBannerImages">
+                    <img class="img-fluid"  *ngFor="let url_imagetwo of urls_imageTwo" [src]="url_imagetwo" width="100" height="150" class="form-control"  alt="Cover">
+                  </div>
+                  <div class="changeBrowseBtn">
+                  <input type="file" id="coverPhoto" name="coverPhoto" (change)="fileUploadImageTwo($event)" class="form-control">
+                  <span>Browse Image</span>
+                  </div>
+                  <div *ngIf="coverimage" style="color: red">Cover image is required</div>
+                </div>
+              </div><br>
+              
+              <div class="form-group">
+                <label>Description</label>
+                <ckeditor [editor]="Editor" formControlName="description"
+                  [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
+                </ckeditor>
+                <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                  <div *ngIf="f.description.errors.validEditor">Deal description is required</div>
+                </div>
+                <div *ngIf="des_msg" style="color: red">Deal description is required</div>
+              </div>
+  
+              <div class="submitBtnBnr">
+                <button type="submit" class="btn btn-primary"> Submit </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

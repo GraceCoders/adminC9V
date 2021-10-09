@@ -1,0 +1,59 @@
+<div id="top"></div>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header headerFlex" style="background-color: aquamarine;">
+          <h4 class="card-title"> Add Banner</h4>
+        </div>
+        <div class="card-body">
+          <div class="row" [formGroup]="bannerForm">
+            <div class="col-md-6 col-lg-4">
+              <label>
+                Title :
+              </label>
+              <input type="text" class="form-control" formControlName="title">
+              <div *ngIf="submitted && c.title.errors">
+                <span [ngClass]="c.title.errors ? 'text-danger' : ''">Title is required.</span>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-lg-12">
+              <label>
+                Banner Image :
+              </label>
+              <div class="chngBannerImages">
+                <img class="img-fluid"  *ngFor="let url_coverPhoto of urls_coverPhoto" [src]="url_coverPhoto" class="form-control"  alt="Cover">
+              </div>
+              <div class="changeBrowseBtn">
+              <input type="file" id="bannerImage" name="bannerImage" (change)="fileUploadCoverPhoto($event)" class="form-control">
+              <span>Browse Image</span>
+              </div>
+              <div *ngIf="submitted && c.bannerImage.errors">
+                <span [ngClass]="c.bannerImage.errors ? 'text-danger' : ''">Banner Image is required.</span>
+              </div>
+            </div>
+
+            
+
+          </div>
+          <div class="text-center control-buttons">
+            <div class="text-danger" *ngIf="message != ''">{{message}}</div>
+            <input type="button" class="btn btn-primary roundedButton" value='Save' (click)="SaveBanner()">
+            <input type="button" class="btn btn-warning roundedButton" value='Cancel' (click)="Cancel()">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+</div>

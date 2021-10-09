@@ -1,0 +1,132 @@
+<div id="top"></div>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header headerFlex" style="background-color: aquamarine;">
+          <h4 class="card-title"> Add Store</h4>
+        </div>
+        <div class="card-body">
+          <div class="row" [formGroup]="storeForm">
+            <div class="col-md-6 col-lg-4">
+              <label>
+                Name :
+              </label>
+              <input type="text" class="form-control" formControlName="name">
+              <div *ngIf="submitted && c.name.errors">
+                <span [ngClass]="c.name.errors ? 'text-danger' : ''">Name is required.</span>
+              </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <label>
+                Email :
+              </label>
+              <input type="text" class="form-control" formControlName="email">
+              <div *ngIf="submitted && c.email.errors">
+                <span [ngClass]="c.email.errors ? 'text-danger' : ''">Email is required.</span>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <label>
+                Password :
+              </label>
+              <input type="text" class="form-control" formControlName="password">
+              <div *ngIf="submitted && c.password.errors">
+                <span [ngClass]="c.password.errors ? 'text-danger' : ''">Password is required.</span>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-lg-12">
+              <label>
+                Address :
+              </label>
+              <input class="form-control" formControlName="address" placeholder="#200 Baron Rue Apt. 802"
+                ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places"
+                (onAddressChange)="handleAddressChange($event)" />
+              <div *ngIf="submitted && c.address.errors">
+                <span [ngClass]="c.address.errors ? 'text-danger' : ''">Address is required.</span>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <label>
+                City :
+              </label>
+              <input type="text" class="form-control" formControlName="city">
+              <div *ngIf="submitted && c.city.errors">
+                <span [ngClass]="c.city.errors ? 'text-danger' : ''">City is required.</span>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <label>
+                Mobile Number :
+              </label>
+              <input type="text" class="form-control" formControlName="mobileNumber">
+              <div *ngIf="submitted && c.mobileNumber.errors">
+                <span [ngClass]="c.mobileNumber.errors ? 'text-danger' : ''">Mobile Number is required.</span>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <label>
+                Zip Code :
+              </label>
+              <input type="text" class="form-control" formControlName="zipCode">
+              <div *ngIf="submitted && c.zipCode.errors">
+                <span [ngClass]="c.zipCode.errors ? 'text-danger' : ''">Zip Code is required.</span>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <label>
+                Delivery Fee:
+              </label>
+              <input type="text" class="form-control" formControlName="deliveryFee">
+              <div *ngIf="submitted && c.zipCode.errors">
+                <span [ngClass]="c.zipCode.errors ? 'text-danger' : ''">Delivery Fee is required.</span>
+              </div>
+            </div>
+
+            
+
+            <div class="col-md-12 col-lg-12">
+              <label>
+                Store Image :
+              </label>
+              <div class="chngBannerImages">
+                <img class="img-fluid"  *ngFor="let url_coverPhoto of urls_coverPhoto" [src]="url_coverPhoto" class="form-control"  alt="Cover">
+              </div>
+              <div class="changeBrowseBtn">
+              <input type="file" id="storeImage" name="storeImage" (change)="fileUploadCoverPhoto($event)" class="form-control">
+              <span>Browse Image</span>
+              </div>
+              <div *ngIf="submitted && c.storeImage.errors">
+                <span [ngClass]="c.storeImage.errors ? 'text-danger' : ''">Store Image is required.</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="text-center control-buttons">
+            <div class="text-danger" *ngIf="message != ''">{{message}}</div>
+              <input type="button" class="btn btn-primary" value='Save' (click)="SaveStore()">
+              <input type="button" class="btn btn-warning" value='Cancel' (click)="Cancel()">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div>
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+</div>

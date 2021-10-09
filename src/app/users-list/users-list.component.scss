@@ -1,0 +1,41 @@
+.btn-primary {
+    background-color:#56a9ff;
+    color: white;
+}
+
+.text-primary, a.text-primary:focus, a.text-primary:hover {
+    color: #56a9ff !important;
+}
+
+.status1{
+    display: block;
+    width: 90px;
+    height: 35px;
+    background: #56a9ff;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+.status2{
+    display: block;
+    width: 90px;
+    height: 35px;
+    background:#ea5252;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+.eventUserList .table-responsive {
+    overflow: hidden;
+    padding-bottom: 0;
+}
+.eventUserList table.table {
+    margin-bottom: 0;
+}
+.userSearchList {
+    text-align: right;
+}
+.eventUserList table.table button {
+    border: 1px solid;
+}

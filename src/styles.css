@@ -1,0 +1,481 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,800,900&display=swap');
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~open-iconic/font/css/open-iconic-bootstrap.css';
+body{font-family: 'Poppins', sans-serif;}
+
+
+.rightPanel .panel-header {
+    padding: 0 0;
+    height: 62px;
+    display: none;
+}
+.main-panel .main-content {
+    margin-top: 40px;
+}
+.navbar.navbar-absolute {
+    position: static;
+    background: #202b36 !important;
+    padding: 12px 0;
+}
+
+
+.wrapper {
+    display: flex;
+}
+.main-panel.rightPanel {
+    width: 100%;
+}
+.sidepanel  {
+  width: 260px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  transition: 0.5s;
+  position: relative;
+    box-shadow: none;
+}
+.sidepanel a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+.sidepanel .closebtn {
+  font-size: 36px;
+}
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+.openbtn:hover {
+  background-color:#444;
+}
+span.toggleMenu {
+    display: flex;
+}
+.sidebar-wrapper li.active p {
+  color: #272727;
+  font-weight: 600;
+}
+.sidebar-wrapper li.active i{
+  color: #272727 !important;
+}
+.sidebar-wrapper li p {
+  font-size: 13px;
+}
+.card {
+  z-index: 1;
+}
+.sidebar .logo:after, .off-canvas-sidebar .logo:after {
+  width: 100%;
+  background: #fff;
+  right: 0;
+}
+.sidebar .sidebar-wrapper, .off-canvas-sidebar .sidebar-wrapper {
+  overflow: hidden;
+}
+.sidebar .logo, .off-canvas-sidebar .logo {
+  position: relative;
+  padding: 10px 0;
+  z-index: 4;
+}
+.sidebar .logo a.logo-normal {
+  font-weight: 600;
+  font-size: 14px;
+  padding-left: 20px;
+}
+span.toggleMenu button.openbtn {
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  position: static;
+  border: 1px solid #273f57;
+  padding: 5px 10px;
+  background: #142536;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+.sidebar span.toggleMenu.sidebarClass button.openbtn i.fa-angle-right {
+  display: block;
+}
+.sidebar span.toggleMenu.sidebarClass button.openbtn i.fa-bars {
+  display: none;
+}
+.toggleMenu button.openbtn i.fa-angle-right {
+  display: none;
+} 
+.sidebar span.toggleMenu.sidebarClass button.openbtn {
+  height: 43px;
+  padding: 0 5px;
+  border-radius: 0;
+  background: #e6302d;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #e6302d;
+}
+.sidebar span.toggleMenu.sidebarClass {
+  position: absolute;
+  left: -1px;
+}
+.card .card-header .card-title {
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.card-body .table-responsive td {
+  font-size: 13px;
+  border: 0;
+  padding: 15px 7px;
+}
+.table-responsive thead.text-primary th {
+  color: #2f2f30;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 15px 7px;
+}
+.table-responsive tr:nth-child(2n+2) {
+  background: #f9f9f9;
+}
+.table-responsive thead.text-primary {
+  background: #ebebeb;
+}
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+}
+.addNewBtn a.btn-primary {
+  margin: 0;
+  background: #5d768e;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+}
+.addNewBtn .btn-primary:not(:disabled):not(.disabled):active {
+  background: #253240;
+}
+.main-content .card-header {
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 25px;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 16px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addNewBtn a.btn-primary:hover {
+  background: #253240;
+  box-shadow: none;
+}
+.eventListPage .searchList {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  position: relative;
+}
+.main-content .userSearchList {
+  margin-bottom: 5px;
+  margin-top: 20px;
+  position: relative;
+}
+.eventListPage .searchList input, .main-content .userSearchList input {
+  border-radius: 0;
+  font-size: 13px;
+  border: 1px solid whitesmoke;
+  background: #f6fafd;
+  min-height: 41px;
+  min-width: 380px;
+  padding: 7px;
+}
+.searchList span.searchIcon, .main-content .userSearchList span.searchIcon {
+  position: absolute;
+  right: 15px;
+  height: 100%;
+  display: flex;
+  top: 0;
+  align-items: center;
+  color: #c6c6c6;
+}
+.addNewBtn a.btn-primary i {
+  margin-right: 10px;
+  font-size: 12px;
+}
+.sarachListPagination ul.pagination {
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.sarachListPagination ul.pagination li.active a {
+  background: #5d768e;
+  border: 1px solid #5d768e;
+}
+.eventUserList .table-responsive button.status1 {
+  background: #5d6b7a;
+  border-radius: 3px;
+}
+.eventTitleInner h2 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  background: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 0;
+}
+.chngBannerImages img {
+  width: 100%;
+  object-fit:contain;
+  height: 200px;
+}
+
+.productImage img {
+  width: 170px;
+  object-fit:contain;
+  height: 100px;
+}
+.eventInnerPages label {
+  font-size: 13px;
+  color: #121517;
+  margin-bottom: 10px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.changeBrowseBtn input {
+  position: relative;
+  z-index: 9;
+  opacity: 0;
+  cursor: pointer;
+}
+.changeBrowseBtn input:hover + span {
+  background: #f5f4f4;
+}
+.changeBrowseBtn {
+  position: relative;
+  margin-top: 19px;
+}
+.changeBrowseBtn span {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 38px;
+  text-align: center;
+  padding: 7px 0;
+  z-index: 1;
+  border: 1px dashed #ddd;
+  background: #fbfbfb;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.submitBtnBnr {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+.submitBtnBnr button.btn-primary {
+  margin: 0;
+  background: #5d768e;
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+}
+.submitBtnBnr .btn-primary:not(:disabled):not(.disabled):active {
+  background: #253240;
+}
+.sarachListPagination ul.pagination a {
+  color: #5d768e;
+}
+.bodyFormDesign label {
+  font-size: 13px;
+  color: #121517;
+  margin-bottom: 10px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.bodyFormDesign .form-control {
+  min-height: 42px;
+  padding: 10px;
+}
+.formMap {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.addTicketPackage .modal-header {
+  padding: 30px 0 20px;
+  border: 0;
+}
+.addTicketPackage .modal-header h4.modal-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+.addTicketPackage form#myform input[type="text"] {
+  min-height: 40px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+}
+.addTicketPackage .modal-footer {
+  padding: 0;
+  border: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.addTicketPackage .modal-footer button {
+  padding: 10px 20px;
+  width: auto;
+  font-size: 14px;
+}
+.addTicketPackage .modal-footer button.btn.btn-primary {
+  background: #5d768e;
+}
+.addTicketPackage .modal-footer .btn-primary:not(:disabled):not(.disabled):active {
+  background: #253240;
+}
+.addTicketPackage .modal-footer button.btn.btn-secondry {
+  background: #bcbcbc;
+}
+.addTicketPackage .w3-display-topright {
+  background: #fff;
+  padding: 1px 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+  top: 0;
+  right: 0;
+  font-size: 19px;
+}
+.addTicketPackage .w3-display-topright:hover {
+  background: #f5f5f5 !important;
+}
+.navbar-nav .dropdown-menu a.dropdown-item {
+  margin: 0;
+  padding: 12px 10px;
+  font-size: 15px;
+  font-weight: 300;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+.navbar-nav .dropdown-menu {
+  padding: 0;
+}
+ul.navbar-nav li.nav-item .dropdown-toggle {
+  border: 1px solid #616161;
+  width: 50px;
+  padding: 7px 5px;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.ticketRow table.table th {
+  padding: 10px 10px;
+  font-weight: 500;
+  font-size: 16px;
+  background: #f1f1f1;
+  }
+
+  .ticketRow table.table tbody td input, .ticketRow table.table tbody td select {
+  width: 100%;
+  border: 1px solid #e9e9e9;
+  background: #fff;
+  padding: 7px;
+  }
+  .ticketRow table.table {
+  border: 1px solid #e7e7e7;
+  background: #f9f9f9;
+  }
+  button.rowRemove i, button.rowAdd i {
+  margin-right: 5px;
+  font-size: 12px;
+  }
+  button.rowAdd {
+  background: #202b36;
+  margin-right: 10px;
+  }
+  button.rowRemove {
+  background: #c60000;
+  }
+  .ticketRow table.table tbody td:last-child button {
+  color: #fff;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  }
+  .error {
+  color: #dc3545;
+  font-size: 12px;
+  }
+
+  .ticketRow .error {
+    position: absolute;
+    bottom: 2px;
+    }
+
+    .ticketRow table.table tbody td {
+      padding: 20px 10px;
+      position: relative;
+      }
+
+      .imageCircle{
+        border-radius: 50%;
+      }
+
+      .text-small{
+        font-size:small;
+      }
+
+      .control-buttons{
+        margin-top:2em;
+      }
+      
+
+      .control-buttons > input{
+        border-radius: 2em!important;
+        width:100px;
+        margin:0.7em;
+      }
+
+      .order-status{
+        display: inline-block;
+        padding: 0.7em;
+        border-radius: 2.1em;
+        margin-left: 0.5em;
+        width: 100px;
+        text-align: center;
+        color: rgb(12, 11, 11);
+      }
+
+
+      .addNewBtn{
+        font-size: small;
+        width: 56%;
+      }
+
+      .eventNoFound{
+        padding: 1em;
+        font-size: x-large;
+        border: 1px solid black;
+        width: 97%;
+        margin: 1.5em;
+        text-align: center;
+      }
+
+      .custom-graph{
+        padding:0.2em;
+      }
